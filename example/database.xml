@@ -7,6 +7,7 @@
       <field name="adress" type="varchar[30]" />
       <field name="zipcode" type="varchar[10]" />
       <field name="city" type="varchar[30]" />
+      <field name="phone" type="varchar[20]" />
       <field name="sex" type="enum{w, m}" />
     </table>
     
@@ -22,6 +23,7 @@
       <field name="adress" type="varchar[30]" />
       <field name="zipcode" type="varchar[10]" />
       <field name="city" type="varchar[30]" />
+      <field name="phone" type="varchar[20]" />
       <field name="partner" type="varchar[30]" />
     </table>
     
@@ -36,5 +38,19 @@
       <connection name="c_person" field="person" table="people" />
       <connection name="c_firm" field="firm" table="firms" />
     </table>
+    
+    <table name="contacts">
+      <field name="id" type="int" primary />
+      <field name="person" type="int" />
+      <field name="firm" type="int" />
+      <field name="memo" type="memo" />
+      
+      <connection name="c_firm" field="firm" table="firms" />
+      <connection name="c_person" field="person" table="people" />
+    </table>
   </dataset>
-</xm>l
+  
+  <form name="start">
+    
+  </form>
+</xml>
