@@ -1,0 +1,40 @@
+<xml>
+  <dataset type="php" url="192.168.2.2/index.php" authenticate />
+    <table name="people">
+      <field name="id" type="int" primary />
+      <field name="name" type="varchar[20]" />
+      <field name="surname" type="varchar[20]" />
+      <field name="adress" type="varchar[30]" />
+      <field name="zipcode" type="varchar[10]" />
+      <field name="city" type="varchar[30]" />
+      <field name="sex" type="enum{w, m}" />
+    </table>
+    
+    <table name="jobs">
+      <field name="id" type="int" />
+      <field name="name" type="varchar[20]" />
+      <field name="description" type="varchar[100]" />
+    </table>
+    
+    <table name="firms">
+      <field name="id" type="int" primary />
+      <field name="name" type="varchar[30]" />
+      <field name="adress" type="varchar[30]" />
+      <field name="zipcode" type="varchar[10]" />
+      <field name="city" type="varchar[30]" />
+      <field name="partner" type="varchar[30]" />
+    </table>
+    
+    <table name="internship">
+      <field name="id" type="int" />
+      <field name="firm" type="int" />
+      <field name="person" type="int" />
+      <field name="report" type="memo" />
+      <field name="start" type="date" />
+      <field name="end" type="date" />
+      
+      <connection name="c_person" field="person" table="people" />
+      <connection name="c_firm" field="firm" table="firms" />
+    </table>
+  </dataset>
+</xm>l
