@@ -1,14 +1,14 @@
 <xml>
-  <dataset type="php" url="192.168.2.2/index.php" authenticate />
+  <dataset type="php" url="192.168.2.2/index.php" authenticate="true">
     <table name="people">
-      <field name="id" type="int" primary />
+      <field name="id" type="int" primary="true" />
       <field name="name" type="varchar[20]" />
       <field name="surname" type="varchar[20]" />
       <field name="adress" type="varchar[30]" />
       <field name="zipcode" type="varchar[10]" />
       <field name="city" type="varchar[30]" />
       <field name="phone" type="varchar[20]" />
-      <field name="sex" type="enum{w, m}" />
+      <field name="sex" type="enum{f, m}" />
     </table>
     
     <table name="jobs">
@@ -18,7 +18,7 @@
     </table>
     
     <table name="firms">
-      <field name="id" type="int" primary />
+      <field name="id" type="int" primary="true" />
       <field name="name" type="varchar[30]" />
       <field name="adress" type="varchar[30]" />
       <field name="zipcode" type="varchar[10]" />
@@ -40,7 +40,7 @@
     </table>
     
     <table name="contacts">
-      <field name="id" type="int" primary />
+      <field name="id" type="int" primary="true" />
       <field name="person" type="int" />
       <field name="firm" type="int" />
       <field name="memo" type="memo" />
@@ -50,7 +50,27 @@
     </table>
   </dataset>
   
-  <form name="start">
+  <form name="start" start="true">
+    <button name="people" type="showForm" form="people" />
+    <button name="firm" type="showForm" form="jobs" />
+  </form>
+  
+  <form name="people" table="people">
+    <input name="name" description="Name" localizer="people.name" field="name" />
+    <input name="surname" description="Vorname" localizer="people.surname" field="surname" />
+    <input name="adress" description="Adresse" localizer="people.adress" field="adress" />
+    <input name="zipcode" description="PLZ" localizer="people.zipcode" field="zipcode" />
+    <input name="city" description="Ort" localizer="people.city" field="city" />
+    <input name="phone" description="Telefonnummer" localizer="people.phone" field="phone" />
+    <dropDown name="sex" type="dropDownBox" description="Geschlecht" localizer="people.sex" field="sex" >
+      <value description="weiblich" value="f" localizer="people.sex.f" />
+      <value description="männlich" value="m" localizer="people.sex.m" />
+    </dropDown>
+  </form>
+  
+  <form name="firm">
     
   </form>
+  
+  
 </xml>
